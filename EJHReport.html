@@ -130,6 +130,10 @@
                                 style="display:none;">
                             <input type="text" class="form-control rounded-3" id="ApproveSheet12" name="ApproveSheet"
                                 required readonly style="">
+
+                            <input type="text" class="form-control rounded-3" id="UpdateBlock2" name="UpdateBlock" readonly required>
+
+                            
                             <!-- DISPLAY TO USER -->
                             <div class="col-md-4">
                                 <label for="MemberName" class="form-label">Member Name <b
@@ -179,6 +183,8 @@
                                 style="display:none;">
                             <input type="text" class="form-control rounded-3" id="ApproveSheet" name="ApproveSheet"
                                 required readonly style="display:none;">
+                            <!-- BLOCK -->
+                            <input type="text" class="form-control rounded-3" id="UpdateBlock1" name="UpdateBlock" readonly required>
 
                             <!-- DISPLAY TO USER -->
                             <div class="col-md-4">
@@ -468,11 +474,7 @@
     </div>
     <!-- END MODAL -->
 
-
-
-
     <div class="bg-white p-4 md:p-8 rounded-lg shadow-xl">
-
         <nav class="bg-gray-800 p-4">
             <div class="container mx-auto flex justify-between items-center">
                 <div>
@@ -675,9 +677,9 @@
                         <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-10">
                             Confirm from Block(BFS/BMIS) Yes/No?</th>
                         <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-10">
-                            Uploaded in Lokos(Yes/No)?</th>
+                           Entries Confirmation Status</th>
                         <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-10">
-                            Confirmation Status</th>
+                            Uploaded in Lokos(Yes/No)?</th>
                     </tr>
                 </thead>
                 <tbody id="meetingTableBody" class="bg-white divide-y divide-gray-200">
@@ -709,12 +711,9 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- Bootstrap Bundle with Popper (required for Bootstrap's JavaScript components like modals) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
     <script>
-
-
         const dropdownToggle = document.getElementById('dropdown-toggle');
         const dropdownMenu = document.getElementById('dropdown-menu');
 
@@ -729,8 +728,7 @@
             }
         });
 
-
-        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbz8EppdFBknHxYMYm_zCQa1e0urcqsfHFWLbETHVunB_2oi2osAmfKD2u3LIovKjPDW9Q/exec"
+        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyhrrhclBE1kvSFqPgylwBIkUGY2EiUjfR18XCUQg0kNEqMiH7Xk6FBQ8Rdlexh_iTN1w/exec"
         let allMeetingData = [];
 
         //this  variable will store the data of the district, block, gp and village 
@@ -767,9 +765,8 @@
 
         async function fetchData() {
             try {
-                const webAppUrl = "https://script.google.com/macros/s/AKfycbz8EppdFBknHxYMYm_zCQa1e0urcqsfHFWLbETHVunB_2oi2osAmfKD2u3LIovKjPDW9Q/exec";
                 let nameParam = $("#BlockforLoaddta").val();
-                const apiUrl = `${webAppUrl}?s=${encodeURIComponent(nameParam)}`;
+                const apiUrl = `${WEB_APP_URL}?s=${encodeURIComponent(nameParam)}`;
                 const response = await fetch(apiUrl);
                 if (!response.ok) {
                     const errorText = await response.text();
@@ -834,7 +831,7 @@
 
         //     try {
 
-        //         const webAppUrl ="https://script.google.com/macros/s/AKfycby0kWy5sVHDo9JEkBGGhNoV8-fQ89KsD1b7T6ymZnWVBhQl4YvzscxMLBCj7YzLe82C/exec";
+        //        
 
         //         const Block = $("#villageFilter").val();
         //         const GP = $("#GPFilter").val();
@@ -1020,8 +1017,8 @@
                     <td class="py-2 px-2 text-sm text-gray-700" data-label="Contact No.">${OtherLICEnrollmentDate12} </td>
                     <td class="py-2 px-2 text-sm text-gray-700" data-label="Contact No.">${OtherLICPolicyNumber} </td>
                     <td class="py-2 px-2 text-sm text-gray-700" data-label="Contact No.">${BlockConfirmation} </td>
-                    <td class="py-2 px-2 text-sm text-gray-700" data-label="uploadedInLokos.">${uploadedinLokos} </td>
-                    <td>  ${c10}  <br> ${c11} </td> `;
+                    <td>  ${c10}  <br> ${c11} </td> 
+                    <td class="py-2 px-2 text-sm text-gray-700" data-label="uploadedInLokos.">${uploadedinLokos} </td>`;
 
             });
 
@@ -1176,12 +1173,14 @@
             XLSX.writeFile(workbook, "Insurance Detail.xlsx");
         });
 
-        // edit function
+        // CONFIRM FUNCTION
         function edit(id) {
             const rowData = filteredData.find(item => item["U_ID"] === id);
             if (rowData) {
                 $('#exampleModal').modal('show');
                 $("#ApproveSheet").val($("#BlockforLoaddta").val())
+
+                document.getElementById('UpdateBlock1').value = rowData["Block"];
                 document.getElementById('MemberName').value = rowData["Member Name"];
                 document.getElementById('MemberCode').value = rowData["Member Code"];;
                 document.getElementById('SHGCode').value = rowData["SHG Code"];;
@@ -1196,6 +1195,8 @@
             if (rowData) {
                 $('#exampleModal12').modal('show');
                 $("#ApproveSheet12").val($("#BlockforLoaddta").val())
+
+                document.getElementById('UpdateBlock2').value = rowData["Block"];
                 document.getElementById('MemberName12').value = rowData["Member Name"];
                 document.getElementById('MemberCode12').value = rowData["Member Code"];;
                 document.getElementById('SHGCode12').value = rowData["SHG Code"];;
@@ -1205,6 +1206,7 @@
             }
         }
 
+        //EDIT MEMBERS DETAIL
         function updatefun(uid) {
             // Assuming 'paginatedData' is your main array of all data
             const rowData = filteredData.find(item => item["U_ID"] === uid);
@@ -1273,13 +1275,13 @@
         // ################# APPROVE FROM BLOCK
         const submissionForm = document.getElementById('updateForm');
         submissionForm.addEventListener('submit', async (event) => {
-            weburl = "https://script.google.com/macros/s/AKfycbz8EppdFBknHxYMYm_zCQa1e0urcqsfHFWLbETHVunB_2oi2osAmfKD2u3LIovKjPDW9Q/exec";
+            //weburl = "https://script.google.com/macros/s/AKfycbyWrnUZj-yruT11kNlFmVbwXSBtVxx_RFobXr0JfJa0Yqqv8-m213dYrQ0QL7StGxEs/exec";
             event.preventDefault(); // Prevent the default form submission
             const formData = new FormData(submissionForm);
             try {
 
                 $("#updatebtn").attr("disabled", true);
-                const response = await fetch(weburl, {
+                const response = await fetch(WEB_APP_URL, {
                     method: 'POST',
                     body: formData
                 });
@@ -1313,12 +1315,13 @@
         //########################  UPDATE DETAILS HERE FROM FORM  ################################
         const EditForm = document.getElementById('EditForm');
         EditForm.addEventListener('submit', async (event) => {
-            weburl = "https://script.google.com/macros/s/AKfycbz8EppdFBknHxYMYm_zCQa1e0urcqsfHFWLbETHVunB_2oi2osAmfKD2u3LIovKjPDW9Q/exec";
+            //weburl = "https://script.google.com/macros/s/AKfycbxqq_B1lp3f49-TfijzFv69gUZO967v4zlxmrCh3TQwOBVsafb-hHOjC6i9AmL47Gj3/exec";
+            
             event.preventDefault(); // Prevent the default form submission
             const formData = new FormData(EditForm);
             try {
                 $("#updatebtn").attr("disabled", true);
-                const response = await fetch(weburl, {
+                const response = await fetch(WEB_APP_URL, {
                     method: 'POST',
                     body: formData
                 });
@@ -1352,12 +1355,12 @@
         // updateInLokosForm
         const UpdateINlokosForm = document.getElementById('updateInLokosForm');
         UpdateINlokosForm.addEventListener('submit', async (event) => {
-            weburl = "https://script.google.com/macros/s/AKfycbz8EppdFBknHxYMYm_zCQa1e0urcqsfHFWLbETHVunB_2oi2osAmfKD2u3LIovKjPDW9Q/exec";
+            // weburl = "https://script.google.com/macros/s/AKfycbzCmOWmisBRvyPmQqRFQ-SzQiigJzDZKoWi_fynX8Ozn1LiiwfOuIIdJBOPP-bC0UR3/exec";
             event.preventDefault(); // Prevent the default form submission
             const formData = new FormData(UpdateINlokosForm);
             try {
                 $("#updatebtn").attr("disabled", true);
-                const response = await fetch(weburl, {
+                const response = await fetch(WEB_APP_URL, {
                     method: 'POST',
                     body: formData
                 });
