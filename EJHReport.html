@@ -1134,9 +1134,9 @@
             // Header Set_up for excell
             const exportHeaders = [
                 "#Sl.No", "District", "Block", "GP", "Village", "Member Name", "SHG Member Code", "SHG Name", "SHG Code",
-                "Member Having Saving Bank Account?", "Saving Account Name", "Saving Account Number", "Saving Branch Name", "Saving Bank IFSC Code", "Member Enroll in any Insurance Yes/No", "Member Enrolled in PMSBY?", "PMSBY Enrollment Date", "PMSBY Policy Number", "Member Enrolled in PMJJBY?",
-                "PMJJBY Enrollment Date", "PMJJBY Policy Number", "Member Enrolled in PMJAY", "PMJAY Enrollment Date", "PMJAY Policy Number", "Member Enrolled in APY", "APY Enrollment Date", "APY Policy Number",
-                "Member Enrolled in Other Life Insurance(PLI/LIC/Others)", "Other Insurance Name", "Enrollmemt Date", "Policy Number", "BFS/BMIS Confirmation(Yes/No)", "upload in Lokos(Yes/No)"
+                "Member Having Saving Bank Account?", "Saving Account Name", "Saving Account Number", "Saving Branch Name", "Saving Bank IFSC Code", "Member Enroll in any Insurance Yes/No", "Member Enrolled in PMSBY?", "PMSBY Validity/Maturity Date", "PMSBY Policy Number", "Member Enrolled in PMJJBY?",
+                "PMJJBY Validity/Maturity Date", "PMJJBY Policy Number", "Member Enrolled in PMJAY", "PMJAY Validity/Maturity Date", "PMJAY Policy Number", "Member Enrolled in APY", "APY Validity/Maturity Date", "APY Policy Number",
+                "Member Enrolled in Other Life Insurance(PLI/LIC/Others)", "Other Insurance Name", "Validity/Maturity Date", "Policy Number", "BFS/BMIS Confirmation(Yes/No)", "upload in Lokos(Yes/No)"
             ];
 
             const exportData = filteredData.map((item, index) => {
@@ -1155,36 +1155,40 @@
                 row["Saving Account Number"] = item["Saving Account Number"];
                 row["Saving Branch Name"] = item["Saving Branch Name"];
                 row["Saving Bank IFSC Code"] = item["Saving IFSC Code"];
+                
+
+                //insurance row
                 row["Member Enroll in any Insurance Yes/No"] = item["MemberHavingInsurance"]
                 row["Member Enrolled in PMSBY?"] = item["Member  Enrolled in  PMSBY (Yes /No)"];
                 let dateObject = new Date(item["PMSBY Enrollment Date"]);
                 let PMSBYEDate13 = isNaN(dateObject.getTime()) ? ' ' : dateObject.toLocaleDateString();
-                row["PMSBY Enrollment Date"] = PMSBYEDate13;
+                row["PMSBY Validity/Maturity Date"] = PMSBYEDate13;
                 //row["PMSBY Enrollment Date"] = item["PMSBY Enrollment Date"];
                 row["PMSBY Policy Number"] = item["PMSBY Policy Number"];
                 row["Member Enrolled in PMJJBY?"] = item["Member Enrolled in PMJJBY Insurance (Yes / No)"];
                 let dateObject1 = new Date(item["PMJJBY Enrollment Date"]);
                 let PMJJBYEDate13 = isNaN(dateObject1.getTime()) ? ' ' : dateObject1.toLocaleDateString();
-                row["PMJJBY Enrollment Date"] = PMJJBYEDate13;
+                row["PMJJBY Validity/Maturity Date"] = PMJJBYEDate13;
                 //row["PMJJBY Enrollment Date"] = item["PMJJBY Enrollment Date"];
                 row["PMJJBY Policy Number"] = item["PMJJBY Policy Number"];
                 row["Member Enrolled in PMJAY"] = item["Member Enrolled in PMJAY Insurance(Yes / No)"];
                 let dateObject2 = new Date(item["PMJAY Enrollment Date"]);
                 let PMJAYEDate13 = isNaN(dateObject2.getTime()) ? ' ' : dateObject2.toLocaleDateString();
-                row["PMJAY Enrollment Date"] = PMJAYEDate13;
+                row["PMJAY Validity/Maturity Date"] = PMJAYEDate13;
                 //row["PMJAY Enrollment Date"] = item["PMJAY Enrollment Date"];
                 row["PMJAY Policy Number"] = item["PMJAY Policy Number"];
                 row["Member Enrolled in APY"] = item["Member Enrolled in APY Insurance(Yes/No)"];
                 let dateObject3 = new Date(item["APY Enrollment Date"]);
                 let APYEDate13 = isNaN(dateObject3.getTime()) ? ' ' : dateObject3.toLocaleDateString();
-                row["APY Enrollment Date"] = APYEDate13;
+                
+                row["APY Validity/Maturity Date"] = APYEDate13;
                 //row["APY Enrollment Date"] = item["APY Enrollment Date"];
                 row["APY Policy Number"] = item["APY Policy Number"];
                 row["Member Enrolled in Other Life Insurance(PLI/LIC/Others)"] = item["Other Life Insurance Detail (PLI/LIC/Others) (Yes/No)"];
                 row["Other Insurance Name"] = item["Other Insurance"];
                 let dateObject4 = new Date(item["Other  Enrollment Date"]);
                 let OtherEDate13 = isNaN(dateObject4.getTime()) ? ' ' : dateObject4.toLocaleDateString();
-                row["Enrollmemt Date"] = OtherEDate13;
+                row["Validity/Maturity Date"] = OtherEDate13;
                 //row["Enrollmemt Date"] = item["Other  Enrollment Date"];
                 row["Policy Number"] = item["Other Policy Number"];
 
@@ -1343,12 +1347,10 @@
         const EditForm = document.getElementById('EditForm');
         EditForm.addEventListener('submit', async (event) => {
             //weburl = "https://script.google.com/macros/s/AKfycbxqq_B1lp3f49-TfijzFv69gUZO967v4zlxmrCh3TQwOBVsafb-hHOjC6i9AmL47Gj3/exec";
-
             event.preventDefault(); // Prevent the default form submission
             const formData = new FormData(EditForm);
             try {
-
-
+               
                 // #############################   START VALIDATION   ############################
                 //Validation Saving account Name
                 if ($("#MemberHavingSavingAcc").val() == 'Yes') {
@@ -1423,19 +1425,16 @@
                         let EnrollDate = $("#UpdateOLIEnrollDate").val();
                         //let PolicyNo = $("#LIPolicyNumber").val();
 
-                        if (Nm == '' || EnrollDate == '') {
+                        if (EnrollDate == '') {
                             alert("Please Fill in the Other Insurance  Detail");
                             return 0;
                         }
                     }
                 }
 
+
                 //  ############################     END VALIDATION  ############################
-
-
-
                 // console.log("PAss")
-
                 // return 0;
 
 
