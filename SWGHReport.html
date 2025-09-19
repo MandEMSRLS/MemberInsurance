@@ -228,7 +228,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="EditForm">
+                   <form id="EditForm">
                         <div class="row">
                             <input type="text" class="form-control rounded-3" id="updSheet" name="updSheet" required
                                 readonly style="display:none;">
@@ -298,7 +298,7 @@
                             <div class="col-md-12">
                                 <label for="MemberHavingSavingAcc" class="form-label">Member Having Saving Bank Account
                                     Yes/ No? <b class="text-danger">*</b></label>
-                                <select class="form-control" name="MemberHavingSavingAcc" id="MemberHavingSavingAcc">
+                                <select class="form-control" name="MemberHavingSavingAcc" id="MemberHavingSavingAcc" required>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
                                 </select>
@@ -340,7 +340,7 @@
                                     Yes/No? <b class="text-danger">*</b></label>
                                 <select class="form-control" name="MemberEnrollInInsurance" id="MemberEnrollInInsurance"
                                     required>
-                                    <option value="YES">YES</option>
+                                    <option value="YES" selected>YES</option>
                                     <option value="NO">NO</option>
                                 </select>
                             </div>
@@ -351,15 +351,15 @@
                             <!-- <h2 class="m-3"> <b> Insurance Detail </b></h2>  -->
                             <!-- PMSBY -->
                             <div class="col-md-4">
-                                <label for="UpdateEnrollPMSBY" class="form-label">Enroll in PMSBY Yes/No? </label>
+                                <label for="UpdateEnrollPMSBY" class="form-label">Enroll in PMSBY Yes/No? <b class="text-danger">*</b></label>
                                 <select class="form-control" name="UpdateEnrollPMSBY" id="UpdateEnrollPMSBY">
-                                    <option value="YES">YES</option>
+                                    <option value="YES" selected>YES</option>
                                     <option value="NO">NO</option>
                                 </select>
                                 <!-- <input type="text" class="form-control rounded-3" id="UpdateEnrollPMSBY" name="UpdateEnrollPMSBY" required> -->
                             </div>
                             <div class="col-md-4">
-                                <label for="UpdatePMSBYEnrollDate" class="form-label"> PMSBY Enrollment Date </label>
+                                <label for="UpdatePMSBYEnrollDate" class="form-label"> PMSBY Validity/Maturity Date <b class="text-danger">*</b></label>
                                 <input type="date" class="form-control rounded-3" id="UpdatePMSBYEnrollDate"
                                     name="UpdatePMSBYEnrollDate">
                             </div>
@@ -372,15 +372,15 @@
 
                             <!-- PMJJBY -->
                             <div class="col-md-4">
-                                <label for="UpdateEnrollPMJJBY" class="form-label">Enroll in PMJJBY? </label>
+                                <label for="UpdateEnrollPMJJBY" class="form-label">Enroll in PMJJBY? <b class="text-danger">*</b></label>
                                 <select class="form-control" name="UpdateEnrollPMJJBY" id="UpdateEnrollPMJJBY">
-                                    <option value="Yes">Yes</option>
-                                    <option value="Yes">No</option>
+                                    <option value="Yes" >Yes</option>
+                                    <option value="No">No</option>
                                 </select>
                                 <!-- <input type="text" class="form-control rounded-3" id="UpdateEnrollPMJJBY" name="UpdateEnrollPMJJBY" required> -->
                             </div>
                             <div class="col-md-4">
-                                <label for="UpdatePMJJBYEnrollDate" class="form-label">PMJJBY Enrollment Date </label>
+                                <label for="UpdatePMJJBYEnrollDate" class="form-label">PMJJBY Validity/Maturity Date <b class="text-danger">*</b></label>
                                 <input type="date" class="form-control rounded-3" id="UpdatePMJJBYEnrollDate"
                                     name="UpdatePMJJBYEnrollDate">
                             </div>
@@ -393,7 +393,7 @@
 
                             <!-- PMJAY -->
                             <div class="col-md-4">
-                                <label for="UpdateEnrollPMJAY" class="form-label">Enroll in PMJAY? </label>
+                                <label for="UpdateEnrollPMJAY" class="form-label">Enroll in PMJAY? <b class="text-danger">*</b></label>
                                 <select class="form-control" name="UpdateEnrollPMJAY" id="UpdateEnrollPMJAY">
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -401,7 +401,7 @@
                                 <!-- <input type="text" class="form-control rounded-3" id="UpdateEnrollPMJAY" name="UpdateEnrollPMJAY" required> -->
                             </div>
                             <div class="col-md-4">
-                                <label for="UpdatePMJAYEnrollDate" class="form-label">PMJAY Enrollment Date </label>
+                                <label for="UpdatePMJAYEnrollDate" class="form-label">PMJAY Validity/Maturity Date <b class="text-danger">*</b></label>
                                 <input type="date" class="form-control rounded-3" id="UpdatePMJAYEnrollDate"
                                     name="UpdatePMJAYEnrollDate">
                             </div>
@@ -413,7 +413,7 @@
 
                             <!-- APY -->
                             <div class="col-md-4">
-                                <label for="UpdateEnrollAPY" class="form-label">Enroll in APY? </label>
+                                <label for="UpdateEnrollAPY" class="form-label">Enroll in APY? <b class="text-danger">*</b></label>
                                 <select class="form-control" name="UpdateEnrollAPY" id="UpdateEnrollAPY">
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -421,7 +421,7 @@
                                 <!-- <input type="text" class="form-control rounded-3" id="UpdateEnrollAPY"  name="UpdateEnrollAPY" required> -->
                             </div>
                             <div class="col-md-4">
-                                <label for="UpdateAPYEnrollDate" class="form-label">APY Enrollment Date </label>
+                                <label for="UpdateAPYEnrollDate" class="form-label">APY Validity/Maturity Date <b class="text-danger">*</b></label>
                                 <input type="date" class="form-control rounded-3" id="UpdateAPYEnrollDate"
                                     name="UpdateAPYEnrollDate">
                             </div>
@@ -433,7 +433,7 @@
 
                             <!-- OTHER LIFE Insurance -->
                             <div class="col-md-4">
-                                <label for="UpdateEnrollOtherLI" class="form-label">Enroll in Other Life Insurance
+                                <label for="UpdateEnrollOtherLI" class="form-label">Enroll in Other Life Insurance <b class="text-danger">*</b>
                                 </label>
                                 <select class="form-control" name="UpdateEnrollOtherLI" id="UpdateEnrollOtherLI">
                                     <option value="Yes">Yes</option>
@@ -450,7 +450,7 @@
                             </div>
 
                             <div class="col-md-4">
-                                <label for="UpdateOLIEnrollDate" class="form-label">Other Life Insurance Enrollment Date
+                                <label for="UpdateOLIEnrollDate" class="form-label">Other Life Insurance Validity/Maturity Date <b class="text-danger">*</b>
                                 </label>
                                 <input type="date" class="form-control rounded-3" id="UpdateOLIEnrollDate"
                                     name="UpdateOLIEnrollDate">
@@ -671,25 +671,25 @@
                         <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-4">
                             Member Enroll in PMSBY? </th>
                         <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-8">
-                            PMSBY Enrollment Date</th>
+                            PMSBY Validity/Maturity Date</th>
                         <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-8">
                             PMSBY Policy Number</th>
                         <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-8">
                             Member Enroll in PMJJBY</th>
                         <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-8">
-                            PMJJBY Enrollment Date </th>
+                            PMJJBY Validity/Maturity Date </th>
                         <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-8">
                             PMJJBY Policy Number</th>
                         <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-8">
                             Member Enroll in PMJAY</th>
                         <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-8">
-                            PMJAY Enrollment Date</th>
+                            PMJAY Validity/Maturity Date</th>
                         <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-8">
                             PMJAY Policy Number</th>
                         <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-10">
                             Member Enroll in APY</th>
                         <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-10">
-                            APY Enrollment Date </th>
+                            APY Validity/Maturity Date </th>
                         <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-10">
                             APY Policy Number</th>
                         <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-10">
@@ -697,7 +697,7 @@
                         <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-10">
                             Insurance Name</th>
                         <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-10">
-                            Enrollment Date </th>
+                            Validity/Maturity Date </th>
                         <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-10">
                             Policy Number</th>
                         <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-10">
@@ -1134,11 +1134,11 @@
             }
 
             // Header Set_up for excell
-            const exportHeaders = [
+           const exportHeaders = [
                 "#Sl.No", "District", "Block", "GP", "Village", "Member Name", "SHG Member Code", "SHG Name", "SHG Code",
-                "Member Having Saving Bank Account?", "Saving Account Name", "Saving Account Number", "Saving Branch Name", "Saving Bank IFSC Code", "Member Enroll in any Insurance Yes/No", "Member Enrolled in PMSBY?", "PMSBY Enrollment Date", "PMSBY Policy Number", "Member Enrolled in PMJJBY?",
-                "PMJJBY Enrollment Date", "PMJJBY Policy Number", "Member Enrolled in PMJAY", "PMJAY Enrollment Date", "PMJAY Policy Number", "Member Enrolled in APY", "APY Enrollment Date", "APY Policy Number",
-                "Member Enrolled in Other Life Insurance(PLI/LIC/Others)", "Other Insurance Name", "Enrollmemt Date", "Policy Number", "BFS/BMIS Confirmation(Yes/No)", "upload in Lokos(Yes/No)"
+                "Member Having Saving Bank Account?", "Saving Account Name", "Saving Account Number", "Saving Branch Name", "Saving Bank IFSC Code", "Member Enroll in any Insurance Yes/No", "Member Enrolled in PMSBY?", "PMSBY Validity/Maturity Date", "PMSBY Policy Number", "Member Enrolled in PMJJBY?",
+                "PMJJBY Validity/Maturity Date", "PMJJBY Policy Number", "Member Enrolled in PMJAY", "PMJAY Validity/Maturity Date", "PMJAY Policy Number", "Member Enrolled in APY", "APY Validity/Maturity Date", "APY Policy Number",
+                "Member Enrolled in Other Life Insurance(PLI/LIC/Others)", "Other Insurance Name", "Validity/Maturity Date", "Policy Number", "BFS/BMIS Confirmation(Yes/No)", "upload in Lokos(Yes/No)"
             ];
 
             const exportData = filteredData.map((item, index) => {
@@ -1157,36 +1157,40 @@
                 row["Saving Account Number"] = item["Saving Account Number"];
                 row["Saving Branch Name"] = item["Saving Branch Name"];
                 row["Saving Bank IFSC Code"] = item["Saving IFSC Code"];
+                
+
+                //insurance row
                 row["Member Enroll in any Insurance Yes/No"] = item["MemberHavingInsurance"]
                 row["Member Enrolled in PMSBY?"] = item["Member  Enrolled in  PMSBY (Yes /No)"];
                 let dateObject = new Date(item["PMSBY Enrollment Date"]);
                 let PMSBYEDate13 = isNaN(dateObject.getTime()) ? ' ' : dateObject.toLocaleDateString();
-                row["PMSBY Enrollment Date"] = PMSBYEDate13;
+                row["PMSBY Validity/Maturity Date"] = PMSBYEDate13;
                 //row["PMSBY Enrollment Date"] = item["PMSBY Enrollment Date"];
                 row["PMSBY Policy Number"] = item["PMSBY Policy Number"];
                 row["Member Enrolled in PMJJBY?"] = item["Member Enrolled in PMJJBY Insurance (Yes / No)"];
                 let dateObject1 = new Date(item["PMJJBY Enrollment Date"]);
                 let PMJJBYEDate13 = isNaN(dateObject1.getTime()) ? ' ' : dateObject1.toLocaleDateString();
-                row["PMJJBY Enrollment Date"] = PMJJBYEDate13;
+                row["PMJJBY Validity/Maturity Date"] = PMJJBYEDate13;
                 //row["PMJJBY Enrollment Date"] = item["PMJJBY Enrollment Date"];
                 row["PMJJBY Policy Number"] = item["PMJJBY Policy Number"];
                 row["Member Enrolled in PMJAY"] = item["Member Enrolled in PMJAY Insurance(Yes / No)"];
                 let dateObject2 = new Date(item["PMJAY Enrollment Date"]);
                 let PMJAYEDate13 = isNaN(dateObject2.getTime()) ? ' ' : dateObject2.toLocaleDateString();
-                row["PMJAY Enrollment Date"] = PMJAYEDate13;
+                row["PMJAY Validity/Maturity Date"] = PMJAYEDate13;
                 //row["PMJAY Enrollment Date"] = item["PMJAY Enrollment Date"];
                 row["PMJAY Policy Number"] = item["PMJAY Policy Number"];
                 row["Member Enrolled in APY"] = item["Member Enrolled in APY Insurance(Yes/No)"];
                 let dateObject3 = new Date(item["APY Enrollment Date"]);
                 let APYEDate13 = isNaN(dateObject3.getTime()) ? ' ' : dateObject3.toLocaleDateString();
-                row["APY Enrollment Date"] = APYEDate13;
+                
+                row["APY Validity/Maturity Date"] = APYEDate13;
                 //row["APY Enrollment Date"] = item["APY Enrollment Date"];
                 row["APY Policy Number"] = item["APY Policy Number"];
                 row["Member Enrolled in Other Life Insurance(PLI/LIC/Others)"] = item["Other Life Insurance Detail (PLI/LIC/Others) (Yes/No)"];
                 row["Other Insurance Name"] = item["Other Insurance"];
                 let dateObject4 = new Date(item["Other  Enrollment Date"]);
                 let OtherEDate13 = isNaN(dateObject4.getTime()) ? ' ' : dateObject4.toLocaleDateString();
-                row["Enrollmemt Date"] = OtherEDate13;
+                row["Validity/Maturity Date"] = OtherEDate13;
                 //row["Enrollmemt Date"] = item["Other  Enrollment Date"];
                 row["Policy Number"] = item["Other Policy Number"];
 
@@ -1348,6 +1352,90 @@
             event.preventDefault(); // Prevent the default form submission
             const formData = new FormData(EditForm);
             try {
+
+                
+                // #############################   START VALIDATION   ############################
+                //Validation Saving account Name
+                if ($("#MemberHavingSavingAcc").val() == 'Yes') {
+                    let AccName = $("#UpdateSavingAccountName").val();
+                    let AccNo = $("#UpdateSavingAccountNumber").val();
+                    let BranchName = $("#UpdateSavingBranchName").val();
+                    let IFSCCode = $("#UpdateSavingIFSCCode").val();
+                    if (AccName == '' || AccNo == '' || BranchName == '' || IFSCCode == '') {
+                        alert("Please Fill in the Saving Account Detail");
+                        return 0;
+                    }
+                }
+
+                //MemberEnrollInInsurance=YES
+                if ($("#MemberEnrollInInsurance").val() == 'YES') {
+                    if($("#UpdateEnrollPMSBY").val()==null || $("#UpdateEnrollPMJJBY").val()==null || $("#UpdateEnrollPMJAY").val() ==null || $("#UpdateEnrollAPY").val()==null || $("#UpdateEnrollOtherLI").val()==null)
+                    {
+                        alert("Please Select an option YES if you have the insurance and NO if you do not have.");  
+                        return 0; 
+                    }
+
+
+                    //PMSBY insurance detail
+                    if ($("#UpdateEnrollPMSBY").val() == 'YES') {
+                        let EnrollDate = $("#UpdatePMSBYEnrollDate").val();
+                        //let PolicyNo = $("#PMSBYPolicyNumber").val();
+
+                        if (EnrollDate == '') {
+                            alert("Please Fill in the PMSBY Insurance Detail");
+                            return 0;
+                        }
+                    }
+
+                    //console.log($("#UpdateEnrollPMJJBY").val());
+                    //PMJJBY
+                    if ($("#UpdateEnrollPMJJBY").val() == 'Yes') {
+                        let EnrollDate1 = $("#UpdatePMJJBYEnrollDate").val();
+                        //let PolicyNo = $("#PMJJBYPolicyNumber").val();
+
+                        if (EnrollDate1 == '') {
+                            alert("Please Fill in the PMJJBY Insurance Detail");
+                            return 0;
+                        }
+                    }
+
+                    // PMJAY
+                    if ($("#UpdateEnrollPMJAY").val() == 'Yes') {
+                        let EnrollDate = $("#UpdatePMJAYEnrollDate").val();
+                        //let PolicyNo = $("#PMJAYPolicyNumber").val();
+
+                        if (EnrollDate == '') {
+                            alert("Please Fill in the PMJAY Insurance Detail");
+                            return 0;
+                        }
+                    }
+
+                    //APY
+                    if ($("#UpdateEnrollAPY").val() == 'Yes') {
+                        let EnrollDate = $("#UpdateAPYEnrollDate").val();
+                        //let PolicyNo = $("#APYPolicyNumber").val();
+
+                        if (EnrollDate == '' ) {
+                            alert("Please Fill in the APY Insurance Detail");
+                            return 0;
+                        }
+                    }
+
+                    //Other Insurance Detail
+                    if ($("#UpdateEnrollOtherLI").val() == 'Yes') {
+                        let Nm = $("#UpdateOLIName").val();
+                        let EnrollDate = $("#UpdateOLIEnrollDate").val();
+                        //let PolicyNo = $("#LIPolicyNumber").val();
+
+                        if (EnrollDate == '') {
+                            alert("Please Fill in the Other Insurance  Detail");
+                            return 0;
+                        }
+                    }
+                }
+
+                //  ############################     END VALIDATION  ############################
+
                 $("#updatebtn").attr("disabled", true);
                 const response = await fetch(WEB_APP_URL, {
                     method: 'POST',
