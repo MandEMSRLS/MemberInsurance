@@ -121,14 +121,26 @@
         <p class="text-center">Member Insurance Detail : This web Application is meant to tract the Member Who Has the
             Insurance and wheather they have update in Lokos or not.
 
-        <p class="text-center mt-3"> <b> <span class="text-danger">** Note :</span> This Page is meant to be to Used
-                inside MSRLS Only </b> </p>
-
+        <p class="text-center mt-3"> <b> <span class="text-danger">** Note :</span> This Page is meant to Used by Authenticated Staff Inside MSRLS Only </b> 
+        
+       <br><br> <b> <span class="text-danger">** </span>To access the form please select your District First. <span class="text-danger">** </span> </b></p>
         </p>
-
-
-
-
+    
+        <select id="linkSelect" class="form-control">
+            <option >-- SELECT DISTRICT -- </option>
+            <option value="EKHReport.html"> East Khasi Hills </option> 
+            <option value="EJHReport.html"> East Jaintia Hills </option> 
+            <option value="EGHReport.html"> East Garo Hills </option> 
+            <option value="EWKHReport.html"> Eastern West Khasi Hills </option> 
+            <option value="NGHReport.html"> North Garo Hills </option> 
+            <option value="RBReport.html"> Ri Bhoi </option> 
+            <option value="SGHReport.html"> South Garo Hills </option>
+            <option value="SWGHReport.html"> South West Garo Hills </option>
+            <option value="SWKHReport.html"> South West Khasi Hills </option>
+            <option value="WKHReport.html"> West Khasi Hills</option>
+            <option value="WJHReport.html"> West Jaintia Hills </option>
+            <option value="WGHReport.html"> West Garo Hills </option>
+        </select>
     </div>
 
 
@@ -152,6 +164,27 @@
                 dropdownMenu.classList.add('hidden');
             }
         });
+
+        document.addEventListener('DOMContentLoaded', function() {
+    // 1. Get the select element by its ID
+    const selectElement = document.getElementById('linkSelect');
+
+    // 2. Add an event listener for the 'change' event
+    selectElement.addEventListener('change', function() {
+        // 'this.value' contains the value of the selected option, which is the URL
+        const selectedUrl = this.value;
+
+        // Check if a valid URL was selected (to ignore the disabled "Choose a page..." option)
+        if (selectedUrl) {
+            // 3. Navigate the browser to the selected URL
+            // window.location.href changes the current page
+            window.location.href = selectedUrl;
+
+            // OPTIONAL: If you wanted to open the link in a new tab:
+            // window.open(selectedUrl, '_blank');
+        }
+    });
+});
 
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
