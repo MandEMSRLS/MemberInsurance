@@ -1619,6 +1619,8 @@
                 const worksheet = workbook.Sheets[firstSheetName];
                 const rawJson = XLSX.utils.sheet_to_json(worksheet);
 
+                console.log(rawJson);
+
                 const formattedData = rawJson.map(row => {
                     return {
                         memberCode: row['Member Code'],
@@ -1629,7 +1631,7 @@
                         SavingBranchName: row['Saving Branch Name'],
                         SavingIFSCCode: row['Saving IFSC Code'],
                         MemberHavingInsurance: row['MemberHavingInsurance'],
-                        enrollinPMSBY: row['Member  Enrolled in  PMSBY(Yes / No)'],
+                        enrollinPMSBY: row['Member Enrolled in PMSBY(Yes/No)'],
                         PMSBYEnrollDate: row['PMSBY Enrollment Date'],
                         PMSBYPolicyNumber: row['PMSBY Policy Number'],
                         EnrollinPMJJBY: row['Member Enrolled in PMJJBY Insurance(Yes / No)'],
@@ -1687,8 +1689,10 @@
             };
 
             // console.log("Payload to send:", payload);
+            // old api : https://script.google.com/macros/s/AKfycbyLK-9S6uQB3a-v8-1axJr39KVrx_n8n665eXM5K7Rfjtrg9HydE3chiZmTG9z9HcEQdA/exec
+            //   latest api : https://script.google.com/macros/s/AKfycbwJjdVfzlLTsHY75w-4Dtv0RzSMCFxOJcj4FKUErHfFAeJUEbFeIMa02axKFRW9qPY8iA/exec 
             try {
-                const response = await fetch('https://script.google.com/macros/s/AKfycbyLK-9S6uQB3a-v8-1axJr39KVrx_n8n665eXM5K7Rfjtrg9HydE3chiZmTG9z9HcEQdA/exec', {
+                const response = await fetch('https://script.google.com/macros/s/AKfycbwJjdVfzlLTsHY75w-4Dtv0RzSMCFxOJcj4FKUErHfFAeJUEbFeIMa02axKFRW9qPY8iA/exec', {
                     method: 'POST',
                     body: JSON.stringify(payload)
                 });
@@ -1709,12 +1713,12 @@
             const exportHeaders = [
                 "Member Code", "Member Name", "MemberHavingSavingAcc", "Saving Account Number",
                 "Saving Bank Name", "Saving Branch Name", "Saving IFSC Code",
-                "MemberHavingInsurance", "Member  Enrolled in  PMSBY (Yes /No)", "PMSBY Enrollment Date",
-                "PMSBY Policy Number", "Member Enrolled in PMJJBY Insurance (Yes / No)",
+                "MemberHavingInsurance", "Member Enrolled in PMSBY(Yes/No)", "PMSBY Enrollment Date",
+                "PMSBY Policy Number", "Member Enrolled in PMJJBY Insurance(Yes / No)",
                 "PMJJBY Enrollment Date", "PMJJBY Policy Number", "Member Enrolled in PMJAY Insurance(Yes / No)",
-                "PMJAY Enrollment Date", "PMJAY Policy Number", "Member Enrolled in APY Insurance(Yes/No)",
-                "APY Enrollment Date", "APY Policy Number", "Other Life Insurance Detail (PLI/LIC/Others) (Yes/No)", "Other Insurance",
-                "Other  Enrollment Date", "Other Policy Number", "BFS/BMIS Confirmation(Yes/No)", "upload in Lokos"
+                "PMJAY Enrollment Date", "PMJAY Policy Number", "Member Enrolled in APY Insurance(Yes / No)",
+                "APY Enrollment Date", "APY Policy Number", "Other Life Insurance Detail(PLI / LIC / Others)(Yes / No)", "Other Insurance",
+                "Other  Enrollment Date", "Other Policy Number", "BFS / BMIS Confirmation(Yes / No)", "upload in Lokos"
             ];
 
             const exportData = [];
